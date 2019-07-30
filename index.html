@@ -21,9 +21,8 @@
             return symbolRepeat(num - str.length) + str;
           }
           return str + symbolRepeat(num - str.length);
-        } else {
-          return str;
         }
+        return str;
       }
 
       console.log(padString("Ivan", 10, "*")); // Добавляем четвертый параметр true/1 для отображения символов вначале исходной строки
