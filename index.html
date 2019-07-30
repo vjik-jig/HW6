@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Рекурсия</title>
+  </head>
+  <body>
+    <script>
+      function padString(str, num, symbol, flag) {
+        var flag = flag || false;
+        function symbolRepeat(n) {
+          if (n != 1) {
+            return symbol + symbolRepeat(n - 1);
+          }
+          return symbol;
+        }
+        if (num - str.length > 0) {
+          if (flag) {
+            return symbolRepeat(num - str.length) + str;
+          }
+          return str + symbolRepeat(num - str.length);
+        } else {
+          return str;
+        }
+      }
+
+      console.log(padString("Ivan", 10, "*")); // Добавляем четвертый параметр true/1 для отображения символов вначале исходной строки
+    </script>
+  </body>
+</html>
