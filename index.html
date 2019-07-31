@@ -8,24 +8,20 @@
   </head>
   <body>
     <script>
-      function padString(str, num, symbol, flag) {
+      var ololo = function padString(str, num, symbol, flag) {
         var flag = flag || false;
-        function symbolRepeat(n) {
-          if (n != 1) {
-            return symbol + symbolRepeat(n - 1);
-          }
-          return symbol;
-        }
+        var result = "";
         if (num - str.length > 0) {
           if (flag) {
-            return symbolRepeat(num - str.length) + str;
+            result = padString(str, num - 1, symbol) + symbol;
+            return result.slice(-(num - str.length)) + str;
           }
-          return str + symbolRepeat(num - str.length);
+          return padString(str, num - 1, symbol) + symbol;
         }
         return str;
-      }
+      };
 
-      console.log(padString("Ivan", 10, "*")); // Добавляем четвертый параметр true/1 для отображения символов вначале исходной строки
+      console.log(ololo("Ivan", 11, "*")); // Добавляем четвертый параметр true/1 для отображения символов вначале исходной строки
     </script>
   </body>
 </html>
