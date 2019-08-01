@@ -12,11 +12,11 @@
         var flag = flag || false;
         var result = "";
         if (num - str.length > 0) {
+          result = padString(str, num - 1, symbol) + symbol;
           if (flag) {
-            result = padString(str, num - 1, symbol) + symbol;
             return result.slice(-(num - str.length)) + str;
           }
-          return padString(str, num - 1, symbol) + symbol;
+          return result;
         }
         return str;
       };
